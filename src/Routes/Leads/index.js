@@ -1,34 +1,7 @@
-// import React, { Component } from "react";
-// import { Text, View, ScrollView } from "react-native";
-
-// import styles from "./styles";
-
-
-// class index extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//     };
-//   }
-//   render() {
-//     return (
-//       <ScrollView>
-//         <View style={styles.mainContainer}>
-//          <Text>Leads</Text>
-//         </View>
-//       </ScrollView>
-//     );
-//   }
-// }
-
-// export default index;
-
-
 
 
 import * as React from 'react';
-import {StyleSheet,View, AsyncStorage,Text, ToastAndroid} from 'react-native'
-import {Dimensions} from 'react-native'
+import {StyleSheet,View, AsyncStorage,Text, ToastAndroid, Dimensions} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -44,15 +17,6 @@ export default class index extends React.Component {
   constructor(){
     super();
   }
-
-//     componentDidMount() {
-//     this._unsubscribe = navigation.addListener('focus', () => {
-//       // do something
-//     });
-//   }
-//  componentWillMount(){
-//   didBlurSubscription.remove();
-//  }
 
   render(){
   return (

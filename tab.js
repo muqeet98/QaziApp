@@ -22,6 +22,8 @@ import ReplayTemps from './src/Routes/Profile/ReplayTemps/index';
 import NewTemplates from "./src/Routes/Profile/ReplayTemps/newTemplates/index";
 import newTemplatesEditScreen from "./src/Routes/Profile/ReplayTemps/newTemplatesEditScreen/index";
 
+import Detail from './src/Routes/Leads/Active/Detail/index'
+import ImageGallery from './src/Routes/Galleries/ImageGallery/index'
 import Users from './src/Routes/Profile/Users/index';
 
 //Width Height
@@ -43,6 +45,7 @@ function HomeStack({ navigation })
 	return (
 		<Stack.Navigator>
 			<Stack.Screen name="AddReview" component={AddReview} />
+	
 		</Stack.Navigator>
 	);
 }
@@ -160,6 +163,10 @@ export default function MainTab()
 			<Stack2.Screen name="Edit Screen" component={newTemplatesEditScreen} options={{ headerShown: false }} />
 			<Stack2.Screen name="AddRev" component={AddReview} options={{
 				title: 'Request a Review'
+			}} />
+					<Stack2.Screen name="Detail" component={Detail}/>
+					<Stack2.Screen name="ImageGallery" component={ImageGallery} options={{
+				title: 'Galleries'
 			}} />
 
 

@@ -16,7 +16,8 @@ class index extends Component
 			id:'',
 			pcover:'',
 			ppic:'',
-			score:[]
+			score: [],
+			totalAvg:0
 
 		};
 	}
@@ -42,13 +43,18 @@ class index extends Component
 	
 				})
 	}
-componentDidMount() {
+	componentDidMount()
+	{
 
    this.getDATA();
    setTimeout(()=> {
 	this.PostData();
-}, 1000/2);
-}
+   }, 1000 / 2);
+		
+
+	}
+	
+	
 	PostData = () =>
 	{
 		console.log("HAHAHHA", this.state.id);
@@ -69,24 +75,22 @@ componentDidMount() {
 			.then((Response) => Response.json())
 			.then((responseData) =>
 			{
-				// console.log(responseData.data[1].profile[0].pcover);
-				// console.log(responseData.data[1].profile[0].ppic);
-				this.setState({pcover: responseData.data[1].profile[0].pcover})
-				this.setState({ppic: responseData.data[1].profile[0].ppic})
-			    
-				// console.log(responseData.data[0].score);
-                this.setState({score: responseData.data[0].data.score})
-				console.log(this.state.score);
+				
+				this.setState({ score: responseData })
+				let data = this.state.score;
+				let findscores = data.data[0];
+				let totalscore = findscores.score;
+				let sum = totalscore.reduce((a, c) => { return parseInt(a) +parseInt( c.avgscore)}, 0);
+				console.log('sum: ', sum)
+				let average = this.state.score.data[0].score.length;
+				console.log(`average`, average)
+				this.setState({ totalAvg: sum / average })
+				console.log(`this.state.totalAvg`, this.state.totalAvg)
+				
 
 			})
-			.catch(error => console.log(error))
-
+			
 	}
-
-	// CalculateAVG=() => {
-    //  for(var a= this.sta)
-	// }
-
 	render()
 	{
 		return (
@@ -99,7 +103,17 @@ componentDidMount() {
 							<Text style={styles.text} onPress={()=> console.log(this.state.ppic)}>{this.state.name}</Text>
 
 						</View>
+						<View style={styles.percentageContainer}>
+							<View style={styles.starContainer}>
+								<Image source={require('../../../assets/star.png')} style={styles.starImage }/>
+							</View>
+							<Text style={{ color: '#fff',fontSize:16 }}>{ this.state.totalAvg}</Text>
+							<View>
+								<Image source={require('../../../assets/percentage.png')} style={styles.percentage }/>
+							</View>
+					</View>
 					</ImageBackground>
+					
 				  {
 					  this.state.buildStatus != 'Yes'?
 					  <TouchableOpacity style={styles.buttonView}>

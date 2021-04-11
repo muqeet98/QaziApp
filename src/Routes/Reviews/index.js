@@ -47,7 +47,7 @@ export default class index extends React.Component
                 <Text style={styles.headertext} >Request a Review</Text>
               </View>
               <TouchableOpacity onPress={() => this.props.navigation.navigate("AddRev")}>
-                <Image source={require('../../../assets/edit.png')} style={styles.headericon} />
+                <Image source={require('../../../assets/edit.png')} style={styles.headericon} resizeMode="contain" />
               </TouchableOpacity>
             </View>
           </View>

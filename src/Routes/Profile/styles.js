@@ -84,6 +84,29 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
   },
+  percentageContainer: {
+    height: 50,
+    width: '100%',
+    justifyContent: "center",
+    alignItems: 'center',
+    backgroundColor: '#424242',
+    flexDirection:'row'
+  },
+  starContainer: {
+    width:30
+
+  },
+  starImage: {
+    width: 20,
+    height: 20,
+   tintColor:'yellow'
+  },
+  percentage: {
+    marginLeft:5,
+      width: 10,
+    height: 10,
+   tintColor:'#fff'
+  }
 
 });
 
